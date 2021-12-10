@@ -15,7 +15,6 @@ const getLocalStorage = () => {
 
 function ToDoApp(){
     const [list, setList] = useState(getLocalStorage());
-    const [alert, setAlert] = useState({show: false, type: "", message: ""});
     const timeOption = {
         year: 'numeric',
         month: 'long',
@@ -32,15 +31,10 @@ function ToDoApp(){
                 createDate: new Date().toLocaleString("en-US", timeOption), 
                 finishingDate: "", 
             }
-            setAlert(true, "成功", "item added to the list");
             setList([...list, newItem]);
         }
     }
     
-    const handleChangeAlert = (show = false, type = "", message = "") => {
-        setAlert(show, type, message);
-    }
-
     const handleClearList = () => {
         setList([]);
     }
