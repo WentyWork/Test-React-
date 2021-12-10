@@ -4,8 +4,17 @@ import Task from "../components/Task";
 import Clear from "../components/Clear";
 import Statistic from "../containers/Statistic";
 
+const getLocalStorage = () => {
+    let list = localStorage.getItem("list");
+    if (list){
+        return (list = JSON.parse(localStorage.getItem("list")));
+  } else{
+        return [];
+  }
+};
+
 function ToDoApp(){
-    const [list, setList] = useState(JSON.parse(localStorage.getItem("list")));
+    const [list, setList] = useState(getLocalStorage());
     const [alert, setAlert] = useState({show: false, type: "", message: ""});
     const timeOption = {
         year: 'numeric',
