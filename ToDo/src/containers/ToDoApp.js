@@ -14,7 +14,7 @@ const getLocalStorage = () => {
 };
 
 function ToDoApp(){
-    const [list, setList] = useState(getLocalStorage());
+    const [list, setList] = useState([]);
     const timeOption = {
         year: 'numeric',
         month: 'long',
