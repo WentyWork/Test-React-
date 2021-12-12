@@ -6,8 +6,10 @@ function Statistic(props){
     const [activeList, setActive] = useState([]); 
     
     useEffect(() => {
-        setSuccess([...props.tasks.filter((item) => item.status === true)]);
-        setActive([...props.tasks.filter((item) => item.status === false)]);
+        if(props.task.length > 0) {
+            setSuccess([...props.tasks.filter((item) => item.status === true)]);
+            setActive([...props.tasks.filter((item) => item.status === false)]);
+        }
     }, [props.tasks])
 
 
